@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Importing socket library 
+# Importing socket library into python program as we are going to use socket for connection
 import socket
 
 # Now we can create socket object
@@ -11,18 +11,18 @@ PORT = 9898
 print("\n Server is listing on port :", PORT, "\n")
 
 # Now we need to bind to the above port at server side
-s.bind(('', PORT))
+s.bind(('socket.gethostbyname(socket.gethostname())', PORT)) #s.bind((IP address, PORT))
 
-# Now we will put server into listenig  mode 
+# Now we will put server into listening  mode 
 s.listen(10)
 
 #Open one recv.txt file in write mode
 file = open("recv.txt", "wb") 
 print("\n Copied file name will be recv.txt at server side\n")
 
-# Now we do not know when client will concatct server so server should be listening contineously  
+# Now we do not know when client will contact server so server should be listening contineously  
 while True:
-    # Now we can establish connection with clien
+    # Now we can establish connection with client
     conn, addr = s.accept()
 
     # Send a hello message to client
